@@ -1,0 +1,136 @@
+@import url('/assets/CSS/style.css');
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff;
+}
+
+.swal2-container {
+  z-index: 20000;
+}
+
+.navbar .profileIcon {
+  color: #fff;
+}
+
+.navbar .navbar-collapse.show,
+.navbar .navbar-collapse.collapsing {
+  padding: 0.75rem 0;
+}
+
+.main-offset {
+  padding-top: 90px;
+}
+
+.start-btn:hover {
+  color: var(--primary) !important;
+  background-color: #fff !important;
+}
+
+.exam-card-scheduled .start-btn,
+.exam-card-inactive .start-btn,
+.exam-card-expired .start-btn {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.schedule-line span,
+.schedule-line strong {
+  color: inherit;
+}
+
+.login-page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f6fb 0%, #ffffff 100%);
+}
+
+.login-card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.login-card .sidebar-pattern {
+  min-height: 430px;
+}
+
+.add-exam-page,
+.profile-page,
+.exams-page,
+.about-page {
+  padding-top: 92px;
+}
+
+.question-card textarea {
+  min-height: 72px;
+}
+
+.question-actions .btn-close {
+  opacity: 0.75;
+}
+
+.doctor-card {
+  background: #fff;
+}
+
+.exam-navbar {
+  min-height: 78px;
+}
+
+.exam-page {
+  min-height: 100vh;
+  background: #f7f8fc;
+}
+
+.exam-content {
+  padding-top: 105px;
+}
+
+.exam-loading-shell {
+  min-height: 100vh;
+  background: #f7f8fc;
+}
+
+.not-found-page {
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.comment-message {
+  white-space: pre-line;
+}
+
+.footer-link-like {
+  cursor: default;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    background: rgba(39, 40, 93, 0.95);
+    border-radius: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .navbar .navbar-nav {
+    align-items: flex-start !important;
+    padding-left: 1rem;
+  }
+
+  .navbar .d-flex.justify-content-center.align-items-center.gap-1 {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card .sidebar-pattern {
+    min-height: auto;
+  }
+
+  .exam-content {
+    padding-top: 150px;
+  }
+}
