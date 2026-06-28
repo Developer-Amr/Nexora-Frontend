@@ -100,7 +100,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="col-md-6">
-                <img src="/assets/images/about.avif" alt="Students Working" className="img-fluid rounded-4 shadow-lg" />
+                <img src={`${import.meta.env.BASE_URL}assets/images/about.avif`} alt="Students Working" className="img-fluid rounded-4 shadow-lg" />
               </div>
             </div>
           </div>

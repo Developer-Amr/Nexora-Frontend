@@ -54,7 +54,7 @@ export default function LoginPage() {
               <div className="row g-0">
                 <div className="col-md-5 bg-prof-dark text-white p-5 d-none d-md-flex flex-column justify-content-between sidebar-pattern">
                   <div>
-                    <i className="fa-solid fa-chalkboard-user display-3 text-white mb-4 d-block" />
+                    <i className="fa-solid fa-chalkboard fs-1 text-white mb-4 d-block"></i>
                     <h3 className="fw-bold border-bottom border-warning border-3 pb-2 d-inline-block text-gold">Faculty Portal</h3>
                     <p className="mt-4 lead opacity-75">Access exam management, student grading, and tracking students.</p>
                   </div>
