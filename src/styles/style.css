@@ -140,6 +140,11 @@ body {
   .comments img {
     width: 175% !important;
   }
+
+  .exam-content #questionsContainer{
+    margin-top: 1rem !important;
+    padding-top: 3rem !important;
+  }
 }
 
 
