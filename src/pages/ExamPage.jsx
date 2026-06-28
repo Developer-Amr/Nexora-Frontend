@@ -822,7 +822,7 @@ console.log("getUserMedia:", navigator.mediaDevices?.getUserMedia);
       </nav>
 
       <section className="exam-content container py-5 my-5">
-        <div id="questionsContainer" className='mt-3 pt-4'>
+        <div id="questionsContainer" className='pt-5'>
           {questions.map((question, index) => {
             const questionId = question.id ?? question.Id ?? index;
             const name = `q${index}`;
