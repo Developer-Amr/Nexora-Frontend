@@ -85,7 +85,7 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main className="about-page">
-        <section className="our-story my-5 pb-5">
+        <section className="our-story my-5 pb-4">
           <div className="container">
             <div className="row align-items-center g-5">
               <div className="col-md-6">
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 <p className="lead">Founded in 2024, our platform was created to bridge the gap between traditional testing and modern digital convenience.</p>
                 <p>We provide a secure, scalable, and user-friendly environment for both universities and students to manage academic assessments with total integrity and ease.</p>
                 <div className="row mt-4 mt-md-5">
-                  <div className="col-sm-6">
+                  <div className="col-sm-6 mb-3">
                     <div className="d-flex align-items-center mb-3"><i className="fa-solid fa-circle-check text-primary me-2 fs-5" /><span className="fw-bold">Secure Testing</span></div>
                     <div className="d-flex align-items-center"><i className="fa-solid fa-circle-check text-primary me-2 fs-5" /><span className="fw-bold">Real-time Analytics</span></div>
                   </div>
