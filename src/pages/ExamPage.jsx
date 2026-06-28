@@ -822,7 +822,7 @@ console.log("getUserMedia:", navigator.mediaDevices?.getUserMedia);
       </nav>
 
       <section className="exam-content container py-5 my-5">
-        <div id="questionsContainer" className='mt-3 pt-3'>
+        <div id="questionsContainer" className='mt-3 pt-4'>
           {questions.map((question, index) => {
             const questionId = question.id ?? question.Id ?? index;
             const name = `q${index}`;
@@ -830,7 +830,7 @@ console.log("getUserMedia:", navigator.mediaDevices?.getUserMedia);
               <div className="card question-card p-4 shadow-sm rounded-4 mb-4" key={questionId}>
                 <div className="d-flex align-items-start mb-3">
                   <span className="badge rounded-pill me-3 mt-1 text-white">Q{index + 1}</span>
-                  <h5 className="question-text">{question.questionText || question.QuestionText}</h5>
+                  <h5 className="question-text lh-base">{question.questionText || question.QuestionText}</h5>
                 </div>
                 <div className="options-list">
                   {[
