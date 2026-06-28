@@ -27,6 +27,11 @@ body {
   padding-top: 90px;
 }
 
+.question-text {
+    text-align: start;
+    text-justify: auto;
+}
+
 .start-btn:hover {
   color: var(--primary) !important;
   background-color: #fff !important;

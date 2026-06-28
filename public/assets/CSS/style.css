@@ -463,11 +463,6 @@ color: var(--danger);
     background-color: var(--primary);
 }
 
-.question-text {
-    text-align: justify;
-    text-justify: inter-word;
-}
-
 .option-container {
     border: 1.5px solid #55555510;
     padding: 12px 18px;
