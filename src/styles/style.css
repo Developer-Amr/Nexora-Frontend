@@ -129,6 +129,9 @@ body {
   header h3 {
     font-size: 24px !important;
   }
+  header .icons {
+    margin-top: 30px !important;
+  }
 }
 
 
