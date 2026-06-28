@@ -3,6 +3,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { logoutLikeLegacyFrontend } from '../utils/storage.js';
 import { useAuthState } from '../hooks/useAuthState.js';
 
+
+const BASE = import.meta.env.BASE_URL;
+
 function navClass({ isActive }) {
   return `nav-link text-white fs-5 p-0 m-2 ${isActive ? 'active' : ''}`;
 }
@@ -49,7 +52,7 @@ export default function Navbar({ transparentOnTop = false }) {
       <div className="container d-flex justify-content-between">
         <h1 className="mb-0">
           <Link className="navbar-brand text-white fst-italic fs-2 me-0" to="/">
-          <img src="/assets/images/nexora-logo.png" alt="Nexora Logo" width={"220px"}/></Link>
+          <img src={`${import.meta.env.BASE_URL}assets/images/nexora-logo.png`} alt="Nexora Logo" width={"220px"}/></Link>
         </h1>
         <button
           className="navbar-toggler text-white bg-white"

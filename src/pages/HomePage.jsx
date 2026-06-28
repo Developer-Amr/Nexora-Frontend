@@ -12,22 +12,23 @@ import { useAuthState } from '../hooks/useAuthState.js';
 import { useStartExamFlow } from '../hooks/useStartExamFlow.js';
 import { Swal, showToast } from '../utils/alerts.js';
 
+const BASE = import.meta.env.BASE_URL;
 const typedWords = ['Smarter', 'Secure', 'AI-Driven', 'Future'];
 
 const initialComments = [
   {
     name: 'Omar Khalid',
-    image: '/assets/images/letter O.png',
+    image: `${BASE}assets/images/letter O.png`,
     text: "The platform is incredibly smooth. I took my midterm online and didn't face any technical issues. The interface is clear, and the countdown timer helped me stay focused on finishing my answers on time.",
   },
   {
     name: 'Sarah Ahmed',
-    image: '/assets/images/letter S.png',
+    image: `${BASE}assets/images/letter S.png`,
     text: 'Creating and managing exams has never been easier. The dashboard allows me to upload questions quickly and monitor student progress in real-time. It’s a very professional tool for academic assessment.',
   },
   {
     name: 'Adam Salem',
-    image: '/assets/images/letter A.png',
+    image: `${BASE}assets/images/letter A.png`,
     text: "A very reliable system for both students and faculty. The automated grading and proctoring features save a lot of time and ensure fairness. It’s definitely the best solution for digital examinations I've used so far.",
   },
 ];
@@ -43,7 +44,7 @@ function CommentCard({ comment }) {
     <div className="comment-card rounded-2 py-3 my-2">
       <div className="row">
         <div className="col-2 d-flex justify-content-center align-items-center ps-4">
-          <img className="rounded-circle w-50" src={comment.image || '/assets/images/letter A.png'} alt="" />
+          <img className="rounded-circle w-50" src={comment.image || `${BASE}assets/images/letter A.png`} alt="" />
         </div>
         <div className="col-10">
           <h6 className="fw-semibold">{comment.name}</h6>
@@ -117,7 +118,7 @@ export default function HomePage() {
         email: form.email,
         content: form.comment,
       });
-      setSubmittedComments((current) => [...current, { name: form.name, image: '/assets/images/letter A.png', text: form.comment }]);
+      setSubmittedComments((current) => [...current, { name: form.name, image: `${BASE}assets/images/letter A.png`, text: form.comment }]);
       setForm({ name: '', email: '', comment: '' });
       setTouched({});
       showToast('success', 'Comment submitted successfully');

@@ -4,12 +4,39 @@ import Footer from '../components/Footer.jsx';
 import { useBodyClass } from '../hooks/useBodyClass.js';
 import { usePageTitle } from '../hooks/usePageTitle.js';
 
+const BASE = import.meta.env.BASE_URL;
+
 const leaders = [
-  { name: 'Amir Essam', role: 'Ai Engineer', image: '/assets/images/amir_essam.jpg', linkedin: 'https://www.linkedin.com/in/amir-essam-4a687731b' },
-  { name: 'Ahmed Farrag', role: 'Ai Engineer', image: '/assets/images/ahmed_farrag.jpg', linkedin: 'https://www.linkedin.com/in/ahmed-farrag-9785842a9' },
-  { name: 'Ahmed Sayed', role: 'Ai Engineer', image: '/assets/images/ahmed_sayed.jpg', linkedin: 'https://www.linkedin.com/in/ahmed-abdelfattah-' },
-  { name: 'Amr Mahmoud', role: 'Frontend Develoepr', image: '/assets/images/amr_mahmoud.jpg', linkedin: 'https://www.linkedin.com/in/amr-mahmoud-dev' },
-  { name: 'Mohamed Said', role: 'Backend Developer', image: '/assets/images/mohamed_said.jpg', linkedin: 'https://www.linkedin.com/in/mohamed-said-49833831a' },
+  {
+    name: 'Amir Essam',
+    role: 'Ai Engineer',
+    image: `${BASE}assets/images/amir_essam.jpg`,
+    linkedin: 'https://www.linkedin.com/in/amir-essam-4a687731b'
+  },
+  {
+    name: 'Ahmed Farrag',
+    role: 'Ai Engineer',
+    image: `${BASE}assets/images/ahmed_farrag.jpg`,
+    linkedin: 'https://www.linkedin.com/in/ahmed-farrag-9785842a9'
+  },
+  {
+    name: 'Ahmed Sayed',
+    role: 'Ai Engineer',
+    image: `${BASE}assets/images/ahmed_sayed.jpg`,
+    linkedin: 'https://www.linkedin.com/in/ahmed-abdelfattah-'
+  },
+  {
+    name: 'Amr Mahmoud',
+    role: 'Frontend Developer',
+    image: `${BASE}assets/images/amr_mahmoud.jpg`,
+    linkedin: 'https://www.linkedin.com/in/amr-mahmoud-dev'
+  },
+  {
+    name: 'Mohamed Said',
+    role: 'Backend Developer',
+    image: `${BASE}assets/images/mohamed_said.jpg`,
+    linkedin: 'https://www.linkedin.com/in/mohamed-said-49833831a'
+  }
 ];
 
 const goals = [

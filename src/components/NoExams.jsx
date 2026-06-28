@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 
+const BASE = import.meta.env.BASE_URL;
+
 export default function NoExams({ variant = 'student' }) {
   if (variant === 'profile') {
     return (
       <div className="row justify-content-center text-center no-exams">
         <div className="col-md-8">
-          <img src="/assets/images/no-exams.jpg" alt="No Exams" className="w-50" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/no-exams.jpg`} alt="No Exams" className="w-50" />
           <div className="my-3">
             <h2 className="fw-bold text-dark mb-0">No Exams Found!</h2>
             <p className="text-muted mb-0">It looks like you haven&apos;t created any exams yet. Start by creating your first exam.</p>
