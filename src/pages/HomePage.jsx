@@ -173,7 +173,7 @@ export default function HomePage() {
       <Navbar transparentOnTop />
       <header className="vh-100 d-flex justify-content-center align-items-center position-relative">
         <div>
-          <h3 className="position-absolute translate-middle display-4 fw-bolder">
+          <h3 className="position-absolute translate-middle display-1 fw-bolder">
             <span ref={typedRef}></span> Exams
           </h3>
           <div className="icons mt-5 mb-3 d-flex justify-content-center">

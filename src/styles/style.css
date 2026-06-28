@@ -125,6 +125,13 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+  header h3 {
+    font-size: 30px !important;
+  }
+}
+
+
 @media (max-width: 768px) {
   .login-card .sidebar-pattern {
     min-height: auto;
