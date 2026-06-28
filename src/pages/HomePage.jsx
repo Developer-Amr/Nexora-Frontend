@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Typed from "typed.js";
-
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Loader from "../components/Loader.jsx";
 import ExamCard from "../components/ExamCard.jsx";
-
 import { backendApi } from "../api/backendClient.js";
 import { isExamAvailableForStudents } from "../utils/examAvailability.js";
 import { useBodyClass } from "../hooks/useBodyClass.js";
@@ -68,31 +66,47 @@ export default function HomePage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthState();
   const startExamFlow = useStartExamFlow();
-
-  const typedRef = useRef(null);
-
+  const [wordIndex, setWordIndex] = useState(0);
   const [exams, setExams] = useState([]);
   const [loadingExams, setLoadingExams] = useState(true);
   const [form, setForm] = useState({ name: "", email: "", comment: "" });
   const [touched, setTouched] = useState({});
   const [submittedComments, setSubmittedComments] = useState([]);
+  const typedRef = useRef(null);
 
   useEffect(() => {
-  if (!typedRef.current) return;
+    const typed = new Typed(typedRef.current, {
+      strings: ["Smarter", "Secure", "Future", "Protected"],
+      typeSpeed: 80,
+      backSpeed: 45,
+      backDelay: 1600,
+      startDelay: 600,
+      loop: true,
+      showCursor: true,
+      cursorChar: "",
+      smartBackspace: true,
+    });
+    return () => typed.destroy();
+  }, []);
 
-  const typed = new Typed(typedRef.current, {
-    strings: ['Smarter', 'Secure', 'Future', 'Proctored'],
-    typeSpeed: 80,
-    backSpeed: 45,
-    backDelay: 1600,
-    startDelay: 600,
-    loop: true,
-    showCursor: true,
-    cursorChar: '',
-  });
-
-  return () => typed.destroy();
-}, []);
+  useEffect(() => {
+    let mounted = true;
+    backendApi
+      .getAvailableExams()
+      .then((data) => {
+        if (mounted)
+          setExams(
+            (Array.isArray(data) ? data : [])
+              .filter(isExamAvailableForStudents)
+              .slice(0, 3),
+          );
+      })
+      .catch((error) => console.error("Could not load home exams:", error))
+      .finally(() => mounted && setLoadingExams(false));
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const comments = useMemo(
     () => [...initialComments, ...submittedComments],
@@ -132,7 +146,6 @@ export default function HomePage() {
         email: form.email,
         content: form.comment,
       });
-
       setSubmittedComments((current) => [
         ...current,
         {
@@ -141,10 +154,8 @@ export default function HomePage() {
           text: form.comment,
         },
       ]);
-
       setForm({ name: "", email: "", comment: "" });
       setTouched({});
-
       showToast("success", "Comment submitted successfully");
     } catch (error) {
       console.error("Could not submit comment:", error);
@@ -160,13 +171,11 @@ export default function HomePage() {
   return (
     <>
       <Navbar transparentOnTop />
-
       <header className="vh-100 d-flex justify-content-center align-items-center position-relative">
         <div>
           <h3 className="position-absolute translate-middle display-1 fw-bolder">
             <span ref={typedRef}></span> Exams
           </h3>
-
           <div className="icons mt-5 mb-3 d-flex justify-content-center">
             <a
               href="https://www.facebook.com/"
@@ -187,7 +196,6 @@ export default function HomePage() {
               <i className="fa-brands fa-youtube text-white text-center fs-5 px-3" />
             </a>
           </div>
-
           <button
             type="button"
             className="btn px-5 py-1 fs-2"
@@ -201,16 +209,12 @@ export default function HomePage() {
       <section className="our-some-exams">
         <div className="container my-4 py-4">
           <h5
-            className={`ourSomeExamsHeading ${
-              !loadingExams && exams.length === 0 ? "d-none" : ""
-            }`}
+            className={`ourSomeExamsHeading ${!loadingExams && exams.length === 0 ? "d-none" : ""}`}
           >
             Our Some Exams
           </h5>
-
           <div id="someExamsContainer">
             {loadingExams && <Loader />}
-
             {!loadingExams &&
               exams.map((exam) => (
                 <ExamCard key={exam.id} exam={exam} onStart={startExamFlow} />
@@ -222,7 +226,6 @@ export default function HomePage() {
       <section className="comments">
         <div className="container my-4 pb-4">
           <h5 className="mb-3 fw-bolder">Comments</h5>
-
           {comments.map((comment, index) => (
             <CommentCard key={`${comment.name}-${index}`} comment={comment} />
           ))}
@@ -232,7 +235,6 @@ export default function HomePage() {
       <section className="write-comment py-4 my-4">
         <div className="container">
           <h5 className="mb-3 fw-bolder">Write A Comment</h5>
-
           <form onSubmit={handleCommentSubmit} noValidate>
             <div className="row gy-2">
               <div className="col-md-6">
@@ -242,10 +244,14 @@ export default function HomePage() {
                   placeholder="Name"
                   autoComplete="off"
                   value={form.name}
-                  onChange={(e) => updateForm("name", e.target.value)}
+                  onChange={(event) => updateForm("name", event.target.value)}
                 />
+                <span
+                  className={`ms-1 ${touched.name && !validation.name ? "" : "d-none"}`}
+                >
+                  letters and spaces only, 3-50 characters
+                </span>
               </div>
-
               <div className="col-md-6">
                 <input
                   type="email"
@@ -253,28 +259,38 @@ export default function HomePage() {
                   placeholder="E-mail"
                   autoComplete="off"
                   value={form.email}
-                  onChange={(e) => updateForm("email", e.target.value)}
+                  onChange={(event) => updateForm("email", event.target.value)}
                 />
+                <span
+                  className={`ms-1 ${touched.email && !validation.email ? "" : "d-none"}`}
+                >
+                  valid email format like user@gmail.com
+                </span>
               </div>
-
               <div className="col-12">
                 <textarea
                   className={`form-control ${controlClass("comment")}`}
                   placeholder="Comment"
                   rows="7"
                   value={form.comment}
-                  onChange={(e) => updateForm("comment", e.target.value)}
+                  onChange={(event) =>
+                    updateForm("comment", event.target.value)
+                  }
                 />
+                <span
+                  className={`ms-1 ${touched.comment && !validation.comment ? "" : "d-none"}`}
+                >
+                  letters, numbers, spaces & basic punctuation; 10-300
+                  characters
+                </span>
               </div>
             </div>
-
             <button type="submit" className="btn me-auto mt-2 py-2 px-4">
               Submit
             </button>
           </form>
         </div>
       </section>
-
       <Footer />
     </>
   );
