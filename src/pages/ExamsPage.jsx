@@ -53,7 +53,7 @@ export default function ExamsPage() {
       <Navbar />
       <main className="exams-page">
         <section className="all-exams">
-          <div className="container my-4 py-4">
+          <div className="container my-5 py-4">
             <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
               <h2 className="fw-bold mb-0">Available Exams</h2>
               {exams.length > 0 && (
@@ -78,7 +78,7 @@ export default function ExamsPage() {
                 <p className="text-muted">Try another search term.</p>
               </div>
             )}
-            <div id="allExamsContainer">
+            <div id="allExamsContainer" className='mb-5'>
               {!loading && filteredExams.map((exam) => <ExamCard key={exam.id} exam={exam} searchable onStart={startExamFlow} />)}
             </div>
           </div>

@@ -11,31 +11,36 @@ const leaders = [
     name: 'Amir Essam',
     role: 'Ai Engineer',
     image: `${BASE}assets/images/amir_essam.jpg`,
-    linkedin: 'https://www.linkedin.com/in/amir-essam-4a687731b'
+    linkedin: 'https://www.linkedin.com/in/amir-essam-4a687731b',
+    github: 'https://github.com/amiressam777'
   },
   {
     name: 'Ahmed Farrag',
     role: 'Ai Engineer',
     image: `${BASE}assets/images/ahmed_farrag.jpg`,
-    linkedin: 'https://www.linkedin.com/in/ahmed-farrag-9785842a9'
+    linkedin: 'https://www.linkedin.com/in/ahmed-farrag-9785842a9',
+    github: 'https://github.com/Ahmed-Elsayed1712'
   },
   {
     name: 'Ahmed Sayed',
     role: 'Ai Engineer',
     image: `${BASE}assets/images/ahmed_sayed.jpg`,
-    linkedin: 'https://www.linkedin.com/in/ahmed-abdelfattah-'
+    linkedin: 'https://www.linkedin.com/in/ahmed-abdelfattah-',
+    github: 'https://github.com/Ahmed9975'
   },
   {
     name: 'Amr Mahmoud',
     role: 'Frontend Developer',
     image: `${BASE}assets/images/amr_mahmoud.jpg`,
-    linkedin: 'https://www.linkedin.com/in/amr-mahmoud-dev'
+    linkedin: 'https://www.linkedin.com/in/amr-mahmoud-dev',
+    github: 'https://github.com/Developer-Amr'
   },
   {
     name: 'Mohamed Said',
     role: 'Backend Developer',
     image: `${BASE}assets/images/mohamed_said.jpg`,
-    linkedin: 'https://www.linkedin.com/in/mohamed-said-49833831a'
+    linkedin: 'https://www.linkedin.com/in/mohamed-said-49833831a',
+    github: 'https://github.com/mohamedsaid225'
   }
 ];
 
@@ -132,7 +137,7 @@ export default function AboutPage() {
                     <p className="mb-3">{leader.role}</p>
                     <div className="social-links">
                       <a className="text-black" href={leader.linkedin}><i className="fa-brands fa-linkedin fs-5 mx-1" /></a>
-                      <a className="text-black" href="#"><i className="fa-brands fa-github fs-5 mx-1" /></a>
+                      <a className="text-black" href={leader.github}><i className="fa-brands fa-github fs-5 mx-1" /></a>
                     </div>
                   </div>
                 </div>
