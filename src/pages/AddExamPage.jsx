@@ -282,14 +282,14 @@ export default function AddExamPage() {
       <Navbar />
       <main className="add-exam-page">
         <section className="container py-3 my-4">
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex justify-content-between align-items-center mt-2">
             <h2 className="fw-bold addExamHeading">{isUpdateMode ? 'Update Exam' : 'Add New Exam'}</h2>
           </div>
 
           {loadingExistingExam ? <Loader /> : (
             <form onSubmit={(event) => event.preventDefault()} noValidate>
               <div className="row">
-                <div className="col-lg-4">
+                <div className="col-lg-4 mb-2">
                   <div className="card sidebar-card shadow-sm p-4 mb-1 border-0 round-2">
                     <h5 className="mb-2">Exam Information</h5>
                     <div className="mb-2">
